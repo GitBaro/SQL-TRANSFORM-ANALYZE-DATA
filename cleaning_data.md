@@ -26,17 +26,6 @@ SET "Date" = "Date"::date
 
 
 
-- Changed Unit Cost and Product Price in Analytics and All_Sessions Tables to be divided by 1,000,000
-
-```
-UPDATE "Analytics"
-SET "Unit_Price" = CAST("Unit_Price" as Integer) / 1000000
-
-UPDATE "All_Sessions"
-SET "ProductPrice" = CAST("ProductPrice" as Integer) / 1000000
-```
-
-
 
 ## Null Value Issues
 - Changed all null integer/numeric values in all Tables to be 0, and changed all null string values to be 'None'
@@ -102,10 +91,14 @@ WHERE "V2ProductCategory" = '(not set)'
 
 ## Cost/Price Issues
 
-- Updated Unit Cost in Analytics Table to be divided by 1,000,000
- 
+
+- Changed Unit Cost and Product Price in Analytics and All_Sessions Tables to be divided by 1,000,000
 
 ```
 UPDATE "Analytics"
 SET "Unit_Price" = CAST("Unit_Price" as Integer) / 1000000
+
+UPDATE "All_Sessions"
+SET "ProductPrice" = CAST("ProductPrice" as Integer) / 1000000
 ```
+
