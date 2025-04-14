@@ -6,10 +6,40 @@ Answer the following questions and provide the SQL queries used to find the answ
 
 SQL Queries:
 
+```
+SELECT "Country",
+	SUM("TransactionRevenue"::INTEGER) AS TransactionRev,
+	SUM("TotalTransactionRevenue"::INTEGER) AS TotalTransactionRev
+FROM "All_Sessions"
+GROUP BY  "Country"
+ORDER BY  TransactionRev, TotalTransactionRev DESC NULLS LAST
+LIMIT 5
+
+SELECT "City",
+	SUM("TransactionRevenue"::INTEGER) AS TransactionRev,
+	SUM("TotalTransactionRevenue"::INTEGER) AS TotalTransactionRev
+FROM "All_Sessions"
+GROUP BY  "City"
+ORDER BY  TransactionRev, TotalTransactionRev DESC NULLS LAST
+LIMIT 5
+
+```
+
+Answer: Countries with the top 5 highest level of transaction revenues are 
+| Country  | City |
+| ---------|:-------------:|
+| United States | Sunnyvale |
+|     Israel    |   Other   |
+| Australia    |San Francisco    |
+| Canada   | Atlanta    |
+| Switzerland    | Palo Alto    |
 
 
-Answer:
-
+""
+""
+"San Francisco"
+"Atlanta"
+"Palo Alto"
 
 
 
