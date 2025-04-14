@@ -1,11 +1,11 @@
 # What issues will you address by cleaning the data?
-## Date/Time Issues
+- Date/Time Issues
 
-## Null Value Issues
+- Null Value Issues
 
-## Country/Location Issues
+- Country/Location Issues
 
-## Cost/Price Issues
+- Cost/Price Issues
 
 
 # Queries:
