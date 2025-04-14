@@ -110,16 +110,51 @@ Answer:
 
 
 
+
 **Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?**
 
 
 SQL Queries:
 
+```
+SELECT "Name",
+	SUM("Total_Ordered") AS ProductSales,
+	"Country"
+FROM "Sales_Report" sr
+JOIN "All_Sessions" al USING("ProductSKU")
+GROUP BY "Country", "Name"
+ORDER BY ProductSales DESC NULLS LAST
 
+SELECT "Name",
+	SUM("Total_Ordered") AS ProductSales,
+	"City"
+FROM "Sales_Report" sr
+JOIN "All_Sessions" al USING("ProductSKU")
+GROUP BY "City", "Name"
+ORDER BY ProductSales DESC NULLS LAST
+```
 
 Answer:
 
+| Country  | Product |
+| ------------- |:-------------:|
+| United States   | 17oz Stainless Steel Sport Bottle    |
+| United Kingdom     | Hard Cover Journal    |
+|  Germany | Ballpoint LED Light Pen     |
+| Canada   | 17oz Stainless Steel Sport Bottle    |
+| Italy  | Leatherette Journal    |
 
+- It seems as though western countries such as the United States and Canada buy more sports activity related products, while European countries (United Kingdom, Germany, Italy) buy more things related too writing and books
+
+| City  | Product |
+| ------------- |:-------------:|
+| Other   | 17oz Stainless Steel Sport Bottle    |
+| Mountain View     | Cam Indoor Security Camera - USA    |
+|  Los Angeles | 17oz Stainless Steel Sport Bottle     |
+| San Francisco   | Android 17oz Stainless Steel Sport Bottle   |
+| Palo Alto  | 17oz Stainless Steel Sport Bottle   |
+
+- United States cities buy sports bottle products a lot, perhaps the most
 
 
 
