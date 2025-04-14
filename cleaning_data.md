@@ -8,19 +8,22 @@
 - Updated Unit Cost in Analytics Table to be divided by 1,000,000
 
 ## Queries:
+
 Below, provide the SQL queries you used to clean your data.
 
 # Date/Time
 
---Updated date format for All_Sessions and Analytics
+- Updated date format for All_Sessions and Analytics
 
+```
 Update "All_Sessions"
 SET "Date" = "Date"::date
 
 Update "Analytics"
 SET "Date" = "Date"::date
+```
 
---Updated Unit Cost in Analytics Table to be divided by 1,000,000
+- Updated Unit Cost in Analytics Table to be divided by 1,000,000
 
 ```
 UPDATE "Analytics"
@@ -28,7 +31,8 @@ SET "Unit_Price" = CAST("Unit_Price" as Integer) / 1000000
 ```
 
 # Country/Location
---Changed to "Other" where City and Country was "not available in demo dataset" and "(not set)"
+
+- Changed to "Other" where City and Country was "not available in demo dataset" and "(not set)"
 
 ```
 UPDATE "All_Sessions"
