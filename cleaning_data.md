@@ -69,7 +69,7 @@ FROM "Products"
 
 # Country/Location
 
-- Changed to "Other" where City and Country was "not available in demo dataset" and "(not set)"
+- Changed to "Other" where City, Country and V2ProductCategory were "not available in demo dataset" and "(not set)"
 
 ```
 UPDATE "All_Sessions"
@@ -87,4 +87,8 @@ WHERE "City" = '(not set)'
 UPDATE "All_Sessions"
 SET "Country" = 'Other'
 WHERE "Country" = '(not set)'
+
+UPDATE "All_Sessions"
+SET "V2ProductCategory" = 'Other'
+WHERE "V2ProductCategory" = '(not set)'
 ```
