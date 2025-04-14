@@ -16,7 +16,7 @@ FROM "All_Sessions"
 ## Answer: 47559
 
 
-# Question 2: 
+# Question 2: What is the total number of unique visitors by referring sites?
 
 ## SQL Queries:
 
