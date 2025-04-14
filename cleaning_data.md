@@ -60,6 +60,11 @@ SELECT Coalesce("UserID"::Integer, 0) AS UserID,
 	Coalesce("Revenue"::Integer, 0) AS Revenue
 FROM "Analytics"
 
+SELECT Coalesce("SentimentScore", 0) AS SentimentScore,
+	Coalesce("SentimentMagnitude", 0) AS SentimentMagnitude
+FROM "Products"
+
+
 ```
 
 # Country/Location
