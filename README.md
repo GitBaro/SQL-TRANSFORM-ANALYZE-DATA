@@ -5,6 +5,7 @@
 The objective of the project is to make a database with a set of sample ecommerce data, clean it and reorganize it so that it is more 
 
 ## Process
+## Creating Database/Populating Database with Tables and Data
 ### Ask/Use Questions to Analyse the given Data
 ### Clean and Tranform the Data based on those questions
 ### Answer Questions based on the Transformed Data
@@ -22,11 +23,13 @@ This Data could tell me about:
 ## Challenges 
 (discuss challenges you faced in the project)
 
+- Datatype Issues when populating tables
 - Figuring out the relationships between the tables and their columns
 - Getting the distinct Visitors and how to track their unique statistics 
 
 ## Future Goals
 (what would you do if you had more time?)
 
+- Fully Sort out DataType Issues
 - Normalize the Data more
 - Take more time to understand/familiarize myself with certain tables and columns to maximize their usage and relationships with other tables
