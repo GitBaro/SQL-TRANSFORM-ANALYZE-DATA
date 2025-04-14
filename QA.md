@@ -74,6 +74,25 @@ FROM "All_Sessions"
 
 ## 3. Cleansing
 
+- Created a new Table called FullVisitors to hold all unique FullVisitorIDs, so it can be referenced for other tables
+
+![image](https://github.com/user-attachments/assets/c0d6f9b2-5317-4178-a373-a305f23a3a2f)
+
+- Inserted values of all unique FullVisitorIDs
+
+```
+INSERT INTO "FullVisitors" ("FullVisitorID")
+SELECT DISTINCT "FullVisitorID"
+FROM "All_Sessions"
+
+UNION
+
+SELECT DISTINCT "FullVisitorID"
+FROM "Analytics"
+ON CONFLICT ("FullVisitorID") DO NOTHING;
+```
+
+
 - Updating the Date columns to be a Date datatype and in date format. The result is datatypes changed to date and format is "YYYY-MM-DD"
 
 ```
@@ -83,6 +102,8 @@ SET "Date" = "Date"::date
 Update "Analytics"
 SET "Date" = "Date"::date
 ```
+
+
 
 ## 4. Testing 
 
