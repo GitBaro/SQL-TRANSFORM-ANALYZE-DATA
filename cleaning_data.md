@@ -6,7 +6,7 @@
 ## Country/Location Issues
 
 ## Cost/Price Issues
-- Updated Unit Cost in Analytics Table to be divided by 1,000,000
+
 
 # Queries:
 
@@ -101,6 +101,10 @@ WHERE "V2ProductCategory" = '(not set)'
 
 
 ## Cost/Price Issues
+
+- Updated Unit Cost in Analytics Table to be divided by 1,000,000
+ 
+
 ```
 UPDATE "Analytics"
 SET "Unit_Price" = CAST("Unit_Price" as Integer) / 1000000
