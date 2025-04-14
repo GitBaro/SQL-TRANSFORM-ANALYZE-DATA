@@ -1,37 +1,47 @@
-Question 1: 
+# Question 1: What is the total Number of Unique Visitors?
 
-SQL Queries:
+## SQL Queries:
 
-Answer: 
+```
+SELECT "FullVisitorID"
+FROM "Analytics"
 
+UNION
 
-
-Question 2: 
-
-SQL Queries:
-
-Answer:
-
-
-
-Question 3: 
-
-SQL Queries:
-
-Answer:
+SELECT "FullVisitorID"
+FROM "All_Sessions"
+```
 
 
+## Answer: 47559
 
-Question 4: 
 
-SQL Queries:
+# Question 2: 
 
-Answer:
+## SQL Queries:
+
+## Answer:
 
 
 
-Question 5: 
+# Question 3: 
 
-SQL Queries:
+## SQL Queries:
 
-Answer:
+## Answer:
+
+
+
+# Question 4: 
+
+## SQL Queries:
+
+## Answer:
+
+
+
+# Question 5: 
+
+## SQL Queries:
+
+## Answer:
