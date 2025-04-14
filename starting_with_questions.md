@@ -35,11 +35,6 @@ Answer: Countries with the top 5 highest level of transaction revenues are
 | Switzerland    | Palo Alto    |
 
 
-""
-""
-"San Francisco"
-"Atlanta"
-"Palo Alto"
 
 
 
