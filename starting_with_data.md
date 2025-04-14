@@ -20,8 +20,31 @@ FROM "All_Sessions"
 
 ## SQL Queries:
 
+```
+With VisitorCount AS
+(SELECT COUNT(DISTINCT("FullVisitorID")) AS TotalVisitors
+	FROM "Analytics"
+) 
+	
+SELECT 
+    "PagePathLevel1",
+    COUNT(*) AS SessionCount,
+    vc.TotalVisitors
+FROM "All_Sessions" s
+JOIN VisitorCount vc ON TRUE
+GROUP BY "PagePathLevel1", vc.TotalVisitors
+ORDER BY SessionCount DESC;
+```
+
+
 ## Answer:
 
+| PagePathLevel1  | SessionCount |  Total Visitors  |
+| ------------- |:-------------:|  --------------  |
+| /google+redesign/ | 14318    | 34991           |
+| /store.html     | 384   | 34991       |
+| /asearch.html    | 382    | 34991           |
+| /yourinfo.html   | 13    | 34991           |
 
 
 # Question 3: 
