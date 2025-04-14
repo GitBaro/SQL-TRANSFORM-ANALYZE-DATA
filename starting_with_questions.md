@@ -85,11 +85,28 @@ Answer: Top 5
 
 SQL Queries:
 
+```
+SELECT "V2ProductCategory",
+	COUNT("V2ProductCategory") AS CategoryQuant,
+	"Country"
+FROM "All_Sessions"
+WHERE "VisitID" IS NOT NULL
+GROUP BY "Country", "V2ProductCategory"
+ORDER BY CategoryQuant DESC
 
+SELECT "V2ProductCategory",
+	COUNT("V2ProductCategory") AS CategoryQuant,
+	"City"
+FROM "All_Sessions"
+WHERE "VisitID" IS NOT NULL
+GROUP BY "City", "V2ProductCategory"
+ORDER BY CategoryQuant DESC
+```
 
 Answer:
-
-
+- Visitors in the United States dominate in how much quantity they buy in most categories, especially in apparel and shop by brand categories. The next closest countries are India and the United Kingdom for shop by brand and apparel categories.
+- Visitors in Cities in the 'Other' section, which are the most dominant city ranges, mostly buy apparel, shop by brand, and electronic materials. Mountain View city then has the most with visitors buying apparel
+- Visitors to different placed typically like to buy apparel and clothing, most likely as souvenirs/things to wear as memorabelia for the location
 
 
 
