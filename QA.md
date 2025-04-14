@@ -107,6 +107,12 @@ SET "Date" = "Date"::date
 
 ## 4. Testing 
 
+- Querying the FullVisitors Table. The result is 47559, which is all the unique FullVisitorIDs from the other tables.
+
+```
+SELECT * FROM "FullVisitors"
+```
+
 - Querying the tables once again to see updated to date format.
 
 ```
