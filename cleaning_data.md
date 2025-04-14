@@ -2,6 +2,8 @@
 ## Date/Time Issues
 - Changed Date Columns of All_Sessions and Analytics tables to proper "YYYY-MM-DD" Format
 
+## Null Value Issues
+
 ## Country/Location Issues
 
 ## MISC Issues
@@ -13,7 +15,7 @@ Below, provide the SQL queries you used to clean your data.
 
 ## Date/Time
 
-- Updated date format for All_Sessions and Analytics
+- Changed date format for All_Sessions and Analytics
 
 ```
 Update "All_Sessions"
@@ -23,11 +25,41 @@ Update "Analytics"
 SET "Date" = "Date"::date
 ```
 
-- Updated Unit Cost in Analytics Table to be divided by 1,000,000
+- Changed Unit Cost and Product Price in Analytics and All_Sessions Tables to be divided by 1,000,000
 
 ```
 UPDATE "Analytics"
 SET "Unit_Price" = CAST("Unit_Price" as Integer) / 1000000
+
+UPDATE "All_Sessions"
+SET "ProductPrice" = CAST("ProductPrice" as Integer) / 1000000
+```
+
+## Null Value Issues
+- Changed all null integer/numeric values in all Tables to be 0, and changed all null string values to be 'None'
+
+```
+SELECT Coalesce("TotalTransactionRevenue"::Integer, 0) AS TotalTransactionRevenue,
+	Coalesce("Transactions"::Integer, 0) AS Transactions,
+	Coalesce("SessionQualityDim"::Integer, 0) AS SessionQualityDim,
+	Coalesce("ProductRefundAmount"::Integer, 0) AS ProductRefundAmount,
+	Coalesce("ProductQuantity"::Integer, 0) AS ProductQuantity,
+	Coalesce("ItemQuantity"::Integer, 0) AS ItemQuantity,
+	Coalesce("ItemRevenue"::Integer, 0) AS ItemRevenue,
+	Coalesce("TransactionRevenue"::Integer, 0) AS TransactionRevenue
+FROM "All_Sessions"
+
+SELECT Coalesce("SearchKeyword", 'None') AS SearchKeyword,	
+	Coalesce("TransactionID", 'None') AS TransactionID,
+	Coalesce("ECommerceAction_Option", 'None') AS ECommerceAction_Option
+FROM "All_Sessions"
+
+SELECT Coalesce("UserID"::Integer, 0) AS UserID,
+	Coalesce("Units_Sold"::Integer, 0) AS Units_Sold,
+	Coalesce("TimeOnSite"::Integer, 0) AS TimeOnSite,
+	Coalesce("Revenue"::Integer, 0) AS Revenue
+FROM "Analytics"
+
 ```
 
 # Country/Location
