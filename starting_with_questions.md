@@ -162,13 +162,75 @@ Answer:
 
 SQL Queries:
 
+```
+WITH CountryRevenue AS
+(
+SELECT SUM("ProductPrice"::Integer * "Total_Ordered") AS Revenue,
+	"Country" AS Country
+FROM "All_Sessions"
+JOIN "Sales_Report" USING("ProductSKU")
+GROUP BY "Country"),
+
+TotalRevenue AS
+(SELECT SUM(Revenue) AS Total
+FROM CountryRevenue)
+
+SELECT
+	cr.Country,
+	Total,
+	cr.Revenue / Total * 100 AS RevPct
+FROM CountryRevenue cr
+JOIN TotalRevenue tr ON true
+WHERE Revenue > 0
+Order By RevPct desc
+
+
+WITH CityRevenue AS
+(
+SELECT SUM("ProductPrice"::Integer * "Total_Ordered") AS Revenue,
+	"City" AS City
+FROM "All_Sessions"
+JOIN "Sales_Report" USING("ProductSKU")
+GROUP BY "City"),
+
+TotalRevenue AS
+(SELECT SUM(Revenue) AS Total
+FROM CityRevenue)
+
+SELECT
+	cr.City,
+	Total,
+	cr.Revenue / Total * 100 AS RevPct
+FROM CityRevenue cr
+JOIN TotalRevenue tr ON true
+WHERE Revenue > 0
+Order By RevPct desc
+```
 
 
 Answer:
 
+| Country  | RevPct |
+| ------------- |:-------------:|
+| United States     | 77.9    |
+| United Kingdom    | 3.68    |
+| Canada    | 2.43  |
+| India    | 1.74   |
+| Italy     | 1.39    |
+
+- The United States has a vastly superior impact of revenue of all the countries, being almost 78% of the total revenue produced.
 
 
 
+| City  | RevPct |
+| ------------- |:-------------:|
+| Other    | 37.68    |
+| Mountain View    | 18.31    |
+| San Francisco    | 5.52  |
+| Sunnyvale    | 5.15   |
+| Palo Alto     | 4.8    |
+
+- Most of the total revenue is produced by inspecified/uknown/uncategorized cities. Of the defined cities, the revenue mostly comes from United States cities (Mountain View, San Francisco, Sunnyvale, Palo Alto)
 
 
 
