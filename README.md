@@ -5,7 +5,7 @@
 The objective of the project is to make a database with a set of sample ecommerce data, clean it and reorganize it so that it is more 
 
 ## Process
-## Creating Database/Populating Database with Tables and Data
+### Creating Database/Populating Database with Tables and Data
 ### Ask/Use Questions to Analyse the given Data
 ### Clean and Tranform the Data based on those questions
 ### Answer Questions based on the Transformed Data
